@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  config-server:
+    environment:
+      SPRING_PROFILES_ACTIVE: native,local
+
+  auth-service:
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_CONFIG_IMPORT: "optional:configserver:http://config-server:8888"
+    ports:
+      - "8081:8081"

@@ -1,0 +1,6 @@
+rootProject.name = 'neighbors'
+include 'config-server'
+include 'auth-service'
+include 'api-gateway'
+include 'eureka-server'
+include 'user-service'

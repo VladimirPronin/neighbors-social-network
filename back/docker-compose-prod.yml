@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  config-server:
+    environment:
+      SPRING_PROFILES_ACTIVE: native,prod
+    ports:
+      - "8888:8888" # Могут быть изменены порты при необходимости
+
+  auth-service:
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SPRING_CONFIG_IMPORT: "optional:configserver:http://config-server:8888"
+    ports:
+      - "8081:8081"
